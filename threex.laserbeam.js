@@ -17,7 +17,7 @@ THREEx.LaserBeam	= function(){
 		transparent	: true
 	})
 	var geometry	= new THREE.PlaneGeometry(1, 0.1)
-	var nPlanes	= 16;
+	var nPlanes	= 6;
 	for(var i = 0; i < nPlanes; i++){
 		var mesh	= new THREE.Mesh(geometry, material)
 		mesh.position.x	= 1/2
