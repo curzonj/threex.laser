@@ -35,18 +35,6 @@ var THREEx = THREEx || {};
 	light.position.x= -0.05;
 	this.light	= light;
 	sprite.add(light);
-
-	// to exports last intersects
-	this.lastIntersects	= [];
-
-	var raycaster	= new THREE.Raycaster();
-	// TODO assume object3d.position are worldPosition. works IFF attached to scene
-	raycaster.ray.origin.copy(object3d.position);
-        this.setTarget = function(target) {
-            object3d.lookAt(target.position);
-            var distance = object3d.position.distanceTo(target.position);
-            object3d.scale.x = distance;
-        };
     };
 
     THREEx.LaserCooked.baseURL	= '../';
