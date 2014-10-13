@@ -1,11 +1,15 @@
-var THREEx = THREEx || {}
+"use strict";
+
+var THREEx = THREEx || {};
+
+var THREE = require('three');
 
 THREEx.LaserBeam	= function(){
-	var object3d	= new THREE.Object3D()
-	this.object3d	= object3d
+	var object3d	= new THREE.Object3D();
+	this.object3d	= object3d;
 	// generate the texture
-	var canvas	= generateLaserBodyCanvas()
-	var texture	= new THREE.Texture( canvas )
+	var canvas	= generateLaserBodyCanvas();
+	var texture	= new THREE.Texture( canvas );
 	texture.needsUpdate	= true;
 	// do the material	
 	var material	= new THREE.MeshBasicMaterial({
@@ -15,16 +19,16 @@ THREEx.LaserBeam	= function(){
 		side		: THREE.DoubleSide,
 		depthWrite	: false,
 		transparent	: true
-	})
-	var geometry	= new THREE.PlaneGeometry(1, 0.1)
+	});
+	var geometry	= new THREE.PlaneGeometry(1, 0.1);
 	var nPlanes	= 6;
 	for(var i = 0; i < nPlanes; i++){
-		var mesh	= new THREE.Mesh(geometry, material)
-		mesh.position.x	= 1/2
-		mesh.rotation.x	= i/nPlanes * Math.PI
-		object3d.add(mesh)
+		var mesh	= new THREE.Mesh(geometry, material);
+		mesh.position.x	= 1/2;
+		mesh.rotation.x	= i/nPlanes * Math.PI;
+		object3d.add(mesh);
 	}
-	return
+	return;
 	
 	function generateLaserBodyCanvas(){
 		// init canvas
@@ -45,4 +49,6 @@ THREEx.LaserBeam	= function(){
 		// return the just built canvas 
 		return canvas;	
 	}
-}
+};
+
+module.exports = THREEx.LaserBeam;
