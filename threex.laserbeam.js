@@ -2,7 +2,7 @@
 
 var THREEx = THREEx || {};
 
-var THREE = require('three');
+var THREE = (window !== undefined ? window.THREE : THREE);
 
 THREEx.LaserBeam	= function(){
 	var object3d	= new THREE.Object3D();
